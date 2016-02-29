@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@color/fragment_color_contact_info">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/lbl_title_info_contact"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/lbl_title_info_contact" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/edit_address">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/current_address"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/edit_municipio">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/municipio"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:singleLine="true"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/edit_colonia">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/colonia"
+                    android:singleLine="true"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/edit_telefono">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tel"
+                    android:inputType="phone"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/edit_cellphone">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cellphone"
+                    android:inputType="phone"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/edit_email">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

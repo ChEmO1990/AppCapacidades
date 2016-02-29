@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="@color/fragment_color_basic_info">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/lbl_title_info_basicinfo"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/lbl_title_info_basicinfo">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/lbl_title_info_basicinfo"
+            android:id="@+id/linearLayout">
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/name">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/full_name"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:textSize="15sp"
+                    android:singleLine="true" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/name_father">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/last_name"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="true"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/name_mother">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/last_name2"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <com.github.florent37.materialtextfield.MaterialTextField
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:mtf_image="@android:drawable/ic_menu_edit"
+                app:mtf_animationDuration="1000"
+                app:mtf_cardColor="@color/white"
+                app:mtf_labelColor="@color/white"
+                app:mtf_openKeyboardOnFocus="false"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/date_birthday">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/date_birthday"
+                    android:textColor="@color/fragment_color_basic_info"
+                    android:textColorHint="@color/fragment_color_basic_info"
+                    android:editable="false"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </com.github.florent37.materialtextfield.MaterialTextField>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/select_gender"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/textView" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">AppCapacidades</string>
+    <string name="full_name">Nombre(s)</string>
+    <string name="last_name">Apellido paterno</string>
+    <string name="last_name2">Apellido materno</string>
+    <string name="date_birthday">Fecha de nacimiento</string>
+    <string name="current_address">Dirección</string>
+    <string name="action_github">GitHub</string>
+    <string name="info_basic">Información Básica</string>
+    <string name="info_contact">Información de Contacto</string>
+    <string name="info_disability">Información de Discapacidad</string>
+    <string name="select_gender">Seleccione su género</string>
+
+    <string name="municipio">Municipio</string>
+    <string name="colonia">Ejido, colonia o barrio</string>
+    <string name="calle">Calle</string>
+    <string name="numero">Número</string>
+    <string name="tel">Teléfono fijo</string>
+    <string name="cellphone">Celular</string>
+    <string name="email">Correo electrónico</string>
+    <string name="estudios">Correo electrónico</string>
+
+    <string name="lbl_level_study">Nivel de estudios</string>
+    <string name="lbl_type_disability">Tipo de discapacidad</string>
+    <string name="lbl_level_disability">Grado de discapacidad</string>
+    <string name="lbl_level_family">Número de miembros en su familia</string>
+
+    <array name="array_gender">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </array>
+
+    <array name="level_study">
+        <item>Primaria</item>
+        <item>Secundaria</item>
+        <item>Bachillerato</item>
+        <item>Licenciatura</item>
+        <item>Otro</item>
+    </array>
+
+    <array name="type_disability">
+        <item>Motriz</item>
+        <item>Visual</item>
+        <item>Auditivo</item>
+        <item>Neurológica</item>
+    </array>
+
+    <array name="level_disability">
+        <item>Leve</item>
+        <item>Moderado</item>
+        <item>Severo</item>
+    </array>
+
+    <array name="level_familiy">
+        <item>Un integrante</item>
+        <item>Dos integrantes</item>
+        <item>Tres integrantes</item>
+        <item>Cuatro intregrantes</item>
+        <item>Cinco integrantes</item>
+        <item>Más de 5 integrantes</item>
+    </array>
+
+</resources>
