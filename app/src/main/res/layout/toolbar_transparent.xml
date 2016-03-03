@@ -7,6 +7,6 @@
     android:layout_width="match_parent"
     android:minHeight="?attr/actionBarSize"
     app:layout_scrollFlags="scroll|enterAlways"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:theme="@style/ChemoThemeToolbar"
+    app:popupTheme="@style/PopupChemoToolbar"
     app:layout_collapseMode="pin"   />

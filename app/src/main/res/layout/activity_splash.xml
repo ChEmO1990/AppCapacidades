@@ -21,4 +21,15 @@
         android:background="@drawable/circle_button"
         android:foreground="?android:attr/selectableItemBackground"
         android:src="@drawable/ic_arrow_forward_24dp" />
+
+    <ImageButton
+        android:id="@+id/image_button_abort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_margin="@dimen/margin_avg"
+        android:background="@drawable/circle_button"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:src="@android:drawable/ic_delete" />
+
 </android.support.design.widget.CoordinatorLayout>

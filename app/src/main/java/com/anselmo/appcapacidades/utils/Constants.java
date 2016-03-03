@@ -8,6 +8,12 @@ public class Constants {
     public static final String APPLICATION_ID_PARSE = "UTfLscIy1dxUNtEZkBXsnqt1FIzQE6n32IQeMik1";
     public static final String CLIENT_KEY_PARSE = "pcIcJLzGdKHwccS1nbSzufYJJ85JVwuOtxvBwIZh";
 
+    //Constants Database
+    public static final String DB_PATH_DATABASE = "/data/data/com.anselmo.appcapacidades/databases/";
+    public static final String DB_NAME_DATABASE = "appcapacidades.sqlite";
+
+    public static final String NEW_USER_RECORD = "new_user";
+
     //Application Constants
     public static final String ADDRESS_PREF = "address";
     public static final String CELLPHONE_PREF = "cellphone";

@@ -1,5 +1,6 @@
 package com.anselmo.appcapacidades.ui.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +11,10 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.anselmo.appcapacidades.R;
 import com.anselmo.appcapacidades.adapters.SplashPagerAdapter;
+import com.anselmo.appcapacidades.db.Querys;
 import com.anselmo.appcapacidades.models.BasicInfoEvent;
 import com.anselmo.appcapacidades.models.ContactInfoEvent;
 import com.anselmo.appcapacidades.models.DisabilityInfoEvent;
@@ -39,15 +42,32 @@ public class SplashActivity extends AppCompatActivity implements ViewPager.OnPag
     @Bind(R.id.image_button_next)
     ImageButton imgBtnNext;
 
+    @Bind(R.id.image_button_abort)
+    ImageButton imgAbort;
+
     private SplashPagerAdapter mSplashPagerAdapter;
+
+    private boolean isNewRecord = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        runOnce();
+
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            isNewRecord = extras.getBoolean(Constants.NEW_USER_RECORD);
+        }
+
+        if( isNewRecord ) {
+            imgAbort.setVisibility(ImageButton.VISIBLE);
+        } else {
+            imgAbort.setVisibility(ImageButton.INVISIBLE);
+            runOnce();
+        }
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -64,6 +84,10 @@ public class SplashActivity extends AppCompatActivity implements ViewPager.OnPag
         if (!SettingsPreferences.isNewInstall(SplashActivity.this)) {
             runIntent(HomeActivity.class);
             finish();
+        } else {
+            String uuid = UUID.randomUUID().toString();
+            Prefs.putString(Constants.ID_USER_PREF, uuid);
+            Querys.addUUID(this, uuid);
         }
     }
 
@@ -119,22 +143,52 @@ public class SplashActivity extends AppCompatActivity implements ViewPager.OnPag
             user.put(Constants.PHONE_PREF, Prefs.getString(Constants.PHONE_PREF, null));
             user.put(Constants.TYPE_DISABILITY_PREF, Prefs.getString(Constants.TYPE_DISABILITY_PREF, null));
             user.put(Constants.EMAIL_PREF, Prefs.getString(Constants.EMAIL_PREF, null));
-            user.put(Constants.ID_USER_PREF, UUID.randomUUID().toString());
+
+            if( isNewRecord ) {
+                user.put(Constants.ID_USER_PREF, UUID.randomUUID().toString());
+                user.put(Constants.ID_USER_FATHER_PREF, Querys.getUUID(this));
+            } else {
+                user.put(Constants.ID_USER_PREF, Querys.getUUID(this));
+            }
 
             user.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
                     if (e == null) {
-                        //Save install
-                        SettingsPreferences.setNewInstall(SplashActivity.this);
 
-                        //Clear all preference information
-                        Prefs.clear();
+                        new AlertDialogWrapper.Builder(SplashActivity.this)
+                                .setTitle("¡Creación exitosa!")
+                                .setMessage("El usuario ha sido creado exitosamente.")
+                                .setCancelable(false)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //Save install
+                                        SettingsPreferences.setNewInstall(SplashActivity.this);
 
-                        Toast.makeText(SplashActivity.this, "Guardado correctamente!!!", Toast.LENGTH_LONG).show();
+                                        //Clear all preference information
+                                        Prefs.clear();
+
+                                        dialog.dismiss();
+
+                                        Intent i = new Intent(SplashActivity.this, HomeActivity.class);
+                                        startActivity(i);
+
+                                        finish();
+                                    }
+                                }).show();
                     } else {
                         e.printStackTrace();
-                        Toast.makeText(SplashActivity.this, "Error parser", Toast.LENGTH_LONG).show();
+                        new AlertDialogWrapper.Builder(SplashActivity.this)
+                                .setTitle("¡Error!")
+                                .setMessage("Ocurrio un error. Porfavor inténtelo de nuevo.\n")
+                                .setCancelable(false)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                }).show();
                     }
                 }
             });
@@ -142,6 +196,11 @@ public class SplashActivity extends AppCompatActivity implements ViewPager.OnPag
         } else if (viewPager.getCurrentItem() < 3) {
             viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true);
         }
+    }
+
+    @OnClick(R.id.image_button_abort)
+    public void OnAbort() {
+        finish();
     }
 
     private void runIntent(Class resultActivity) {
